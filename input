@@ -1,0 +1,64 @@
+basic
+{
+    L_lead = 100
+    L_device = 40
+    t_lead = 1
+    t_device = 0.4
+    t_contactL = 0.2
+    t_contactR = 0.2
+    mu_leadL = 0
+    mu_leadR = 0
+    mu_device = -0.1
+    Delta = 0.5
+    Ec = 1
+    EJ = 0
+    Ng = 0.5
+    damp_decay_length = 40
+    maxCharge = 5
+
+    mu_biasL = 0.05
+    mu_biasS = 0
+    mu_biasR = -0.05
+    dt = 1
+    time_steps = 200
+
+    NumCenter = 1
+    mixNumCenter = no
+    globExpanN = 10000
+    globExpanItv = 1
+    globExpanCutoff = 1e-4
+    globExpanKrylovDim = 2
+    globExpanHpsiCutoff = 1e-14
+    globExpanHpsiMaxDim = 100
+    globExpanMethod = Fit
+    Truncate = yes
+
+    SubCorrN = 1000
+    corr_cutoff = 1e-12
+
+    write = no
+    write_dir = .
+    write_file = timeevol.save
+    read = no
+    read_dir = .
+    read_file = timeevol.save
+
+    verbose = yes
+    useSVD = no
+    SVDMethod = gesdd
+
+    WriteDim = 400
+    DMRG_sweeps
+    {
+        maxm    cutoff   niter  noise    nsweep
+        16      1E-8     10     1e-8     2
+        32      1E-12    10     1e-10    2
+        64      1E-12    10     0        2
+        128     1E-12    10     0        2
+    }
+    sweeps
+    {
+        maxm   minm   cutoff   niter  noise    nsweep
+        2000   16     1E-7     30     0        1
+    }
+}
